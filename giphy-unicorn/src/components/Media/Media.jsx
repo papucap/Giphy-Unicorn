@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Media.css";
 
 function Media() {
+
+    const [trending, setTrending] = useState([]);
+
   return (
     <div className="media">
       <div className="row">
         <div className="row-header">
           <img src="/image/trending.svg" alt="Trending" />
           <h1>Trending</h1>
+          {/* trending giphy and then loup through */}
         </div>
         <div className="trending-container">
           <p>content</p>
