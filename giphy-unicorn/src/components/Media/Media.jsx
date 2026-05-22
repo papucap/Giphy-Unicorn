@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchTrendingGiphys } from "./../../api/giphyApi";
 import "./Media.css";
+import TrendingGiphy from "../TrendingGiphy/TrendingGiphy";
 
 function Media() {
   const [trending, setTrending] = useState([]);

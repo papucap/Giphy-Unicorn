@@ -13,3 +13,9 @@
 .row-header img{
     margin-right: 6px;
 }
+
+.trending-container {
+  display: flex;
+  height: 150px;
+  overflow: hidden;
+}
