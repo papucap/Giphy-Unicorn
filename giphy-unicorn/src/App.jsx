@@ -1,11 +1,14 @@
 import "./App.css";
+import Header from "./components/Header/Header.jsx";
 
 function App() {
   return (
     <>
       <div className="App">
         <div className="main">
-          <h1>Giphy Unicorn</h1>
+          <Header />
+          <h1>Search container</h1>
+          <h1>Media</h1>
         </div>
       </div>
     </>
