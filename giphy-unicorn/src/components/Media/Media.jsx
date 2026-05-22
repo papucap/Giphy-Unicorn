@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { fetchTrendingGiphys } from "./../../api/giphyApi";
+import { fetchSearchGiphys, fetchTrendingGiphys } from "./../../api/giphyApi";
 import "./Media.css";
 import TrendingGiphy from "../TrendingGiphy/TrendingGiphy";
+import giphyArtists from "../../artists";
+import ArtistGiphy from "../ArtistGiphy/ArtistGiphy";
 
 function Media() {
   const [trending, setTrending] = useState([]);
+  const [artists, setArtists] = useState([]);
 
   const randomizeData = (content) => {
     return content.data.sort(() => Math.random() - 0.5);
@@ -15,11 +18,21 @@ function Media() {
     setTrending(randomizeData(trending.data));
   };
 
+  const getArtists = async () => {
+    const artists = await Promise.all(
+      giphyArtists.map(async (giphyArtists) => {
+        return fetchSearchGiphys(giphyArtists).then((res) => res.data.data);
+      }),
+    );
+    setArtists(artists.flat());
+  };
+
   useEffect(() => {
     getTrendingGiphys();
+    getArtists();
   }, []);
 
-  console.log(trending, "what is in trending");
+  console.log(artists, "what is in artists");
 
   return (
     <div className="media">
@@ -40,7 +53,9 @@ function Media() {
           <h1>Artists</h1>
         </div>
         <div className="artists-container">
-          <p>content</p>
+          {artists.map((artistGiphys, index) => {
+            return <ArtistGiphy giphy={artistGiphys} key={index} />;
+          })}
         </div>
       </div>
       <div className="row">

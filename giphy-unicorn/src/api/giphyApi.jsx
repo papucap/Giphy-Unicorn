@@ -14,3 +14,13 @@ export const fetchTrendingGiphys = () => {
         params: DEFAULT_PARAMS,
     });
 }
+
+export const fetchSearchGiphys = (query) => {
+    return api.get("search", {
+        baseURL: GIPHY_BASE_URL,
+        params: {
+            ...DEFAULT_PARAMS,
+            q: query,
+        },
+    });
+}
