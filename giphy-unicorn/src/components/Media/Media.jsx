@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {fetchTrendingGiphys } from "./../../api/giphyApi";
+import { fetchTrendingGiphys } from "./../../api/giphyApi";
 import "./Media.css";
 
 function Media() {
@@ -26,10 +26,11 @@ function Media() {
         <div className="row-header">
           <img src="/image/trending.svg" alt="Trending" />
           <h1>Trending</h1>
-          {/* trending giphy and then loup through */}
         </div>
         <div className="trending-container">
-          <p>content</p>
+          {trending?.map((trendingGiphy, index) => {
+            return <TrendingGiphy giphy={trendingGiphy} key={index} />;
+          })}
         </div>
       </div>
       <div className="row">
