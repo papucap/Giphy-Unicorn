@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import SearchContainer from "./components/SearchContainer/SearchContainer.jsx";
+import Media from "./components/Media/Media.jsx"; 
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <div className="main">
           <Header />
           <SearchContainer />
-          <h1>Media</h1>
+          <Media />
         </div>
       </div>
     </>
